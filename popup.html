@@ -3,13 +3,32 @@
 <head>
   <title>Custom Ice</title>
   <style>
-    textarea { width: 100%; height: 80px; }
-    button { margin-top: 8px; width: 100%; }
+    body {
+      width: 50em;
+      padding: 1em;
+      margin: 0;
+    }
+    body > * {
+      width: 100%;
+    }
+    textarea {
+      padding: 0;
+      height: 80px;
+      resize: vertical;
+      border: none;
+      outline: none;
+    }
+    button {
+      margin-top: 1em;
+      cursor: pointer;
+      font-family: 'Consolas';
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <textarea placeholder="Your Custom CSS here..." id="css_input"></textarea>
-  <button id="apply_css">Custom Ice</button>
+  <button id="apply_css">CUSTOM ICE</button>
   <script src="db-utils.js"></script>
   <script src="popup.js"></script>
 </body>
