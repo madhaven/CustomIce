@@ -3,26 +3,55 @@
 <head>
   <title>Custom Ice</title>
   <style>
+    :root {
+      --bg: #282828;
+      --fg: #048494;
+      --fg-hover: #0095a5;
+      --fg-active: #06a6b6;
+      --accent: #fff;
+      --whiteLayer0: #fff2;
+      --whiteLayer1: #fff4;
+      --whiteLayer2: #fffa;
+    }
+    * {
+      transition: .1s ease-out;
+    }
     body {
+      background-color: var(--bg);
       width: 50em;
-      padding: 1em;
       margin: 0;
     }
     body > * {
+      padding: 1em;
       width: 100%;
     }
     textarea {
-      padding: 0;
+      background-color: transparent;
+      color: var(--whiteLayer2);
+      padding: 1em;
+      width: calc(100% - 2em);
       height: 80px;
       resize: vertical;
       border: none;
       outline: none;
     }
+    textarea::placeholder {
+      color: var(--whiteLayer1);
+    }
     button {
-      margin-top: 1em;
+      padding: .5em;
+      border: none;
+      background-color: var(--fg);
+      color: var(--whiteLayer2);
       cursor: pointer;
       font-family: 'Consolas';
       font-weight: bold;
+    }
+    button:hover {
+      background-color: var(--fg-hover);
+    }
+    button:active {
+      background-color: var(--fg-active);
     }
   </style>
 </head>
