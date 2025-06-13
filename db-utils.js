@@ -1,10 +1,11 @@
 // Shared IndexedDB utility functions for extension
+// Note: Content scripts and extension scripts have separate IndexedDB databases.
 
 const STORE_NAME = 'cssByHost';
 const DB_NAME = 'customIceDB';
 const KEY_NAME = 'hostname';
 
-// Promise-based IndexedDB open function
+// Promise-based IndexedDB open
 function openDbPromise() {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open(DB_NAME, 1);

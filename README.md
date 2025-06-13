@@ -53,6 +53,7 @@ Custom Ice is a simple, privacy-friendly browser extension that empowers users t
 
 ## Future Goals
 
+- **Option to Drag-n-Drop Files**: Allow users to drag-n-drop CSS files into the plugin
 - **Option to Add JavaScript**: Allow users to inject custom JavaScript per site, in addition to CSS.
 - **Toggle Custom Ice On/Off**: Provide a simple switch to enable or disable all custom styles/scripts without deleting them.
 - **Cross-Browser Operation**: Expand support and ensure seamless operation across all major browsers.
