@@ -1,8 +1,7 @@
-// Import shared DB utils
 // Assumes db-utils.js is included before this script in popup.html
 
 const cssTextArea = document.getElementById('css_input');
-const button = document.getElementById('apply_css');
+const button = document.getElementById('apply_button');
 let hostname;
 
 // load saved CSS when popup opens
@@ -15,14 +14,12 @@ getCurrentTabHostname(hname => {
     });
 });
 
+// sends CSS to the content-script and saves to indexed-DB (extension specific)
 button.addEventListener('click', async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     chrome.tabs.sendMessage(tab.id, {type: 'inject-css', css: cssTextArea.value});
     saveCssForHost(hostname, cssTextArea.value);
 });
-
-async function updatePageCSS(withCss) {
-}
 
 // Returns a Promise that resolves to the hostname of the current active tab
 async function getCurrentTabHostname(callback) {

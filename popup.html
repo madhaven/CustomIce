@@ -12,6 +12,9 @@
       --whiteLayer0: #fff2;
       --whiteLayer1: #fff4;
       --whiteLayer2: #fffa;
+      --blackLayer1: #0008;
+      --error-text: #f44;
+      --error-bg: #8114;
     }
     * {
       transition: .1s ease-out;
@@ -53,12 +56,53 @@
     button:active {
       background-color: var(--fg-active);
     }
+    #file_drop_area {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      transition: .2s ease-out; 
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      font-size: large;
+    }
+    #file_drop_area.active {
+      background-color: var(--blackLayer1);
+      backdrop-filter: blur(8px);
+    }
+    #file_drop_area * {
+      text-align: center;
+      pointer-events: none;
+      opacity: 0;
+      width: 100%;
+      transition: opacity .2s ease-in-out;
+      font-size: large;
+    }
+    #file_drop_area.active * {
+      opacity: 1;
+    }
+    #drop_hint {
+      color: var(--whiteLayer1);
+    }
+    #drop_invalid {
+      display: none;
+      color: var(--error-text);
+    }
   </style>
 </head>
 <body>
+  <div id="file_drop_area" class="">
+    <div id="drop_hint">I can't load that ICE yet...<!--Yeah, Drop that ICE !--></div>
+    <div id="drop_invalid">Bruh, that's not CSS !<br>aura drop yo</div>
+  </div>
   <textarea placeholder="Your Custom CSS here..." id="css_input"></textarea>
-  <button id="apply_css">CUSTOM ICE</button>
+  <!--placeholder += (or drop a .css file)"-->
+  <button id="apply_button">CUSTOM ICE</button>
   <script src="db-utils.js"></script>
   <script src="popup.js"></script>
+  <script src="drag_n_drop.js"></script>
 </body>
 </html>
